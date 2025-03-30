@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Routine Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 320px;
+            text-align: center;
+        }
+        h2 {
+            color: #4a90e2;
+        }
+        input, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        input {
+            background-color: #e6f7ff;
+            border: 1px solid #4a90e2;
+            color: #333;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        h3 {
+            color: #ff7f50;
+        }
+        p {
+            background-color: #fff8dc;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Class Routine Generator</h2>
+        <label for="facultyTime">Faculty Timing:</label>
+        <input type="text" id="facultyTime" placeholder="e.g. 9:00 AM - 2:00 PM">
+        
+        <label for="classTime">Class Timing:</label>
+        <input type="text" id="classTime" placeholder="e.g. 10:00 AM - 4:00 PM">
+        
+        <label for="numPeriods">Number of Periods:</label>
+        <input type="number" id="numPeriods" placeholder="e.g. 6">
+        
+        <label for="tiffinTime">Tiffin Time:</label>
+        <input type="text" id="tiffinTime" placeholder="e.g. 12:30 PM - 1:00 PM">
+        
+        <button onclick="generateRoutine()">Generate Routine</button>
+        
+        <h3>Generated Routine:</h3>
+        <p id="routineOutput"></p>
+    </div>
+
+    <script>
+        function generateRoutine() {
+            let facultyTime = document.getElementById("facultyTime").value;
+            let classTime = document.getElementById("classTime").value;
+            let numPeriods = document.getElementById("numPeriods").value;
+            let tiffinTime = document.getElementById("tiffinTime").value;
+            
+            if (!facultyTime || !classTime || !numPeriods || !tiffinTime) {
+                alert("Please fill all fields");
+                return;
+            }
+            
+            document.getElementById("routineOutput").innerText =
+                `Faculty Timing: ${facultyTime}\nClass Timing: ${classTime}\nPeriods: ${numPeriods}\nTiffin Time: ${tiffinTime}`;
+        }
+    </script>
+</body>
+</html>
